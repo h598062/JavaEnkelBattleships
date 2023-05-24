@@ -13,6 +13,7 @@ Regler:
 
 TODO:
 * Gjør ferdig CUSTOM game mode
+* Skrive om kode til å fjerne ELENDIG ide om å ha x verdi i Pos som char istedenfor int
 * Multiplayer over internett / LAN?
 * Finn fram saksen og klipp spaghettikoden om til skruer (pastaskruer e best)
 * GUI istedenfor CLI program

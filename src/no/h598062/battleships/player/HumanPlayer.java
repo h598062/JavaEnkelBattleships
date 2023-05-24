@@ -1,6 +1,7 @@
 package no.h598062.battleships.player;
 
 import no.h598062.battleships.game.Board;
+import no.h598062.battleships.util.MessageDisplay;
 import no.h598062.battleships.util.Pos;
 import no.h598062.battleships.ship.ShipSize;
 
@@ -11,7 +12,12 @@ public class HumanPlayer extends Player {
 
 	@Override
 	public Pos getShootPosition() {
-		return inputHandler.askForTargetPosition();
+		Pos p = inputHandler.askForTargetPosition();
+		while (this.missedShots.contains(p) || this.hitShots.contains(p)) {
+			MessageDisplay.println("You have already shot there! Try again!");
+			p = inputHandler.askForTargetPosition();
+		}
+		return p;
 	}
 
 	@Override
