@@ -43,6 +43,10 @@ public class Pos {
 	}
 
 	@Override
+	public String toString() {
+		return String.valueOf(x) + y;
+	}
+	@Override
 	public boolean equals(Object o) {
 		if (this == o) {
 			return true;

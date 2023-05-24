@@ -15,4 +15,9 @@ public enum ShipSize {
 	public int getSize() {
 		return size;
 	}
+
+	@Override
+	public String toString() {
+		return name() + " (" + size + ")";
+	}
 }
