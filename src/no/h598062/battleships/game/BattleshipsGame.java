@@ -1,4 +1,13 @@
-package no.h598062.battleships;
+package no.h598062.battleships.game;
+
+import no.h598062.battleships.util.MessageDisplay;
+import no.h598062.battleships.util.PlayerInputHandler;
+import no.h598062.battleships.util.Pos;
+import no.h598062.battleships.player.AiPlayer;
+import no.h598062.battleships.player.HumanPlayer;
+import no.h598062.battleships.player.Player;
+import no.h598062.battleships.ship.Ship;
+import no.h598062.battleships.ship.ShipSize;
 
 public class BattleshipsGame {
 	Board  p1Board;

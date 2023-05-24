@@ -1,4 +1,9 @@
-package no.h598062.battleships;
+package no.h598062.battleships.player;
+
+import no.h598062.battleships.game.Board;
+import no.h598062.battleships.util.PlayerInputHandler;
+import no.h598062.battleships.util.Pos;
+import no.h598062.battleships.ship.ShipSize;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +11,7 @@ import java.util.List;
 public abstract class Player {
 	List<Pos> missedShots;
 	List<Pos> hitShots;
-	Board board;
+	Board     board;
 
 	PlayerInputHandler inputHandler;
 

@@ -1,12 +1,14 @@
-package no.h598062.battleships;
+package no.h598062.battleships.ship;
+
+import no.h598062.battleships.util.Pos;
 
 import java.util.LinkedList;
 import java.util.List;
 
 public class Ship {
 	private ShipSize  size;
-	private boolean horizontal;
-	private Pos start;
+	private boolean   horizontal;
+	private Pos       start;
 	private List<Pos> positions;
 
 	public Ship(Pos start, boolean horizontal, ShipSize size) {

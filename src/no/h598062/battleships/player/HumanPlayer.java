@@ -1,4 +1,8 @@
-package no.h598062.battleships;
+package no.h598062.battleships.player;
+
+import no.h598062.battleships.game.Board;
+import no.h598062.battleships.util.Pos;
+import no.h598062.battleships.ship.ShipSize;
 
 public class HumanPlayer extends Player {
 	public HumanPlayer(Board board) {

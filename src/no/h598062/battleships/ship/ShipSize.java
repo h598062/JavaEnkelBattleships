@@ -1,4 +1,4 @@
-package no.h598062.battleships;
+package no.h598062.battleships.ship;
 
 public enum ShipSize {
 	SMALL(2), MEDIUM(3), LARGE(4);

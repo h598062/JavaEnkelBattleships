@@ -1,4 +1,8 @@
-package no.h598062.battleships;
+package no.h598062.battleships.game;
+
+import no.h598062.battleships.ship.Ship;
+import no.h598062.battleships.ship.ShipSize;
+import no.h598062.battleships.util.Pos;
 
 import java.util.LinkedList;
 import java.util.List;

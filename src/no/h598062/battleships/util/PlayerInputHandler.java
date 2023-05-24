@@ -1,4 +1,7 @@
-package no.h598062.battleships;
+package no.h598062.battleships.util;
+
+import no.h598062.battleships.game.GamePresets;
+import no.h598062.battleships.ship.ShipSize;
 
 import java.util.Scanner;
 

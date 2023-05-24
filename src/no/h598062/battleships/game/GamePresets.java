@@ -1,4 +1,4 @@
-package no.h598062.battleships;
+package no.h598062.battleships.game;
 
 public enum GamePresets {
 	SMALL5(5, 2, 1, 1), SMALL7(7, 2, 2, 1), SMALL9(9, 3, 2, 1), MEDIUM12(12, 3, 3, 2), MEDIUM15(15, 5, 3, 2), LARGE20(20, 7, 5, 4);

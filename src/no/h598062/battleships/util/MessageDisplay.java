@@ -1,4 +1,4 @@
-package no.h598062.battleships;
+package no.h598062.battleships.util;
 
 public class MessageDisplay {
 

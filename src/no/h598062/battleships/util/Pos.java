@@ -1,4 +1,4 @@
-package no.h598062.battleships;
+package no.h598062.battleships.util;
 
 public class Pos {
 	private char x; // 'A' - 'Z' (65 - 90)
