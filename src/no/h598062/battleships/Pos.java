@@ -11,23 +11,27 @@ public class Pos {
 
 	public static Pos createPos(String position) throws IllegalArgumentException {
 		if (position.length() < 2 || position.length() > 3) {
-			throw new IllegalArgumentException("Invalid position");
+			throw new IllegalArgumentException("Invalid position String length");
 		}
 		char x = position.charAt(0);
 		int y;
 		try {
 			y = Integer.parseInt(position.substring(1));
 		} catch (NumberFormatException e) {
-			throw new IllegalArgumentException("Invalid position");
+			throw new IllegalArgumentException("Invalid Y position format,  must be a number");
 		}
 		if (x < 'A' || x > 'Z' || y < 1 || y > 25) { // 'A' = 65, 'Z' = 90, 90 - 65 = 25
-			throw new IllegalArgumentException("Invalid position");
+			throw new IllegalArgumentException("X or Y position is out of range");
 		}
 		return new Pos(x, y);
 	}
 
 	public char getX() {
 		return x;
+	}
+
+	public int getXAsInt() {
+		return x - 64;
 	}
 
 	public void setX(char x) {

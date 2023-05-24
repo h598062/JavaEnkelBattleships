@@ -1,12 +1,7 @@
 package no.h598062.battleships;
 
 public enum GamePresets {
-	SMALL5(5, 2, 1, 1),
-	SMALL7(7, 2, 2, 1),
-	SMALL9(9, 3, 2, 1),
-	MEDIUM12(12, 3, 3, 2),
-	MEDIUM15(15,5, 3, 2),
-	LARGE20(20, 7, 5, 4);
+	SMALL5(5, 2, 1, 1), SMALL7(7, 2, 2, 1), SMALL9(9, 3, 2, 1), MEDIUM12(12, 3, 3, 2), MEDIUM15(15, 5, 3, 2), LARGE20(20, 7, 5, 4);
 
 	private final int smallShips;
 	private final int mediumShips;
@@ -18,8 +13,8 @@ public enum GamePresets {
 		this.boardsize   = boardsize;
 		this.smallShips  = smallShips;
 		this.mediumShips = mediumShips;
-		this.largeShips = largeShips;
-		this.totalShips = smallShips + mediumShips + largeShips;
+		this.largeShips  = largeShips;
+		this.totalShips  = smallShips + mediumShips + largeShips;
 	}
 
 	public int getBoardsize() {
@@ -40,5 +35,11 @@ public enum GamePresets {
 
 	public int getTotalShips() {
 		return totalShips;
+	}
+
+	@Override
+	public String toString() {
+		return name() + ":\n" + "\tBoardsize: " + boardsize + "\tTotal Ships: " + totalShips + "\n\tSmall Ships: " + smallShips + "\tMedium Ships: " +
+		       mediumShips + "\tLarge Ships: " + largeShips;
 	}
 }

@@ -12,9 +12,12 @@ public class AiPlayer extends Player {
 
 	public AiPlayer(Board board) {
 		super(board);
-		this.setHuman(false);
-		this.r                   = new Random();
-		this.unTargetedPositions = new ArrayList<>(25);
+		this.r                      = new Random();
+		this.unTargetedPositions    = new ArrayList<>(25);
+		this.unTestedPlacePositions = new ArrayList<>(25);
+		fillPositionLists(this.getBoard()
+		                      .getWidth(), this.getBoard()
+		                                       .getHeight());
 	}
 
 	public void fillPositionLists(int width, int height) {
@@ -28,7 +31,7 @@ public class AiPlayer extends Player {
 	}
 
 	@Override
-	public Pos shootPosition() {
+	public Pos getShootPosition() {
 		int randomIndex = r.nextInt(unTargetedPositions.size());
 		return unTargetedPositions.remove(randomIndex);
 	}
@@ -37,5 +40,10 @@ public class AiPlayer extends Player {
 	public Pos placeShip(ShipSize size) {
 		int randomIndex = r.nextInt(unTestedPlacePositions.size());
 		return unTestedPlacePositions.remove(randomIndex);
+	}
+
+	@Override
+	public boolean getHorizontal() {
+		return r.nextBoolean();
 	}
 }

@@ -1,5 +1,6 @@
 package no.h598062.battleships;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Ship {
@@ -12,13 +13,14 @@ public class Ship {
 		if (start == null || size == null) {
 			throw new IllegalArgumentException("Start and size must be specified");
 		}
+		this.start = start;
+		this.horizontal = horizontal;
+		this.positions = new LinkedList<>();
 		if (horizontal) {
 			createHorizontalPositions(start, size);
 		} else {
 			createVerticalPositions(start, size);
 		}
-		this.start = start;
-		this.horizontal = horizontal;
 	}
 
 	private void createVerticalPositions(Pos start, ShipSize size) {
@@ -42,6 +44,18 @@ public class Ship {
 
 	public boolean checkPosition(Pos pos) {
 		return positions.contains(pos);
+	}
+
+	public boolean hit(Pos pos) {
+		return positions.remove(pos);
+	}
+
+	public boolean isSunk() {
+		return positions.isEmpty();
+	}
+
+	public List<Pos> getPositions() {
+		return positions;
 	}
 
 	@Override

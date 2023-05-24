@@ -3,35 +3,49 @@ package no.h598062.battleships;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Player {
-	private final List<Pos> targetedPositions;
-	private boolean isHuman;
+public abstract class Player {
+	List<Pos> missedShots;
+	List<Pos> hitShots;
+	Board board;
 
-	private Board board;
+	PlayerInputHandler inputHandler;
 
-	public Player(Board board) {
-		this.isHuman           = true;
-		this.targetedPositions = new ArrayList<>(20);
-		this.board             = board;
+	protected Player(Board board) {
+		this.missedShots = new ArrayList<>(20);
+		this.hitShots    = new ArrayList<>(20);
+		this.board       = board;
+		this.inputHandler = new PlayerInputHandler(this instanceof AiPlayer);
 	}
 
-	public Pos shootPosition() {
-		return PlayerInputHandler.askForTargetPosition();
+	public abstract Pos getShootPosition();
+
+	public abstract Pos placeShip(ShipSize size);
+
+	public String showAllShotsBoardString() {
+		char[][] boardCharArr = new char[board.getWidth()][board.getHeight()];
+		for (int x = 0; x < board.getHeight(); x++) {
+			for (int y = 0; y < board.getWidth(); y++) {
+				boardCharArr[x][y] = '.';
+			}
+		}
+
+		for (Pos pos : missedShots) {
+			boardCharArr[pos.getXAsInt() - 1][pos.getY() - 1] = 'o';
+		}
+		for (Pos pos : hitShots) {
+			boardCharArr[pos.getXAsInt() - 1][pos.getY() - 1] = 'x';
+		}
+		return Board.boardStringBuilder(boardCharArr);
 	}
 
-	public Pos placeShip(ShipSize  size) {
-		return PlayerInputHandler.askForShipPosition(size);
+	public abstract boolean getHorizontal();
+
+	public void addMissedShot(Pos pos) {
+		missedShots.add(pos);
 	}
 
-	private List<Pos> getTargetedPositions() {
-		return targetedPositions;
-	}
-	public boolean isHuman() {
-		return isHuman;
-	}
-
-	public void setHuman(boolean human) {
-		isHuman = human;
+	public void addHitShot(Pos pos) {
+		hitShots.add(pos);
 	}
 
 	public Board getBoard() {
